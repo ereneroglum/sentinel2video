@@ -1,0 +1,50 @@
+.TH SENTINEL2VIDEO 1 2024-07-30 "version 1.0"
+.SH NAME
+sentinel2video - A simple utility to convert Sentinel 2 satellite images to video.
+.SH SYNOPSIS
+.B sentinel2video
+[-h | --help]
+
+.B sentinel2video
+--start START --end END [--project PROJECT] [--fps FPS] [--bands BANDS [BANDS ...]] [--gamma GAMMA [GAMMA ...]] [--min MIN [MIN ...]] [--max MAX [MAX ...]] [--output OUTPUT] [--scale SCALE] [--tiles TILES [TILES ...]] [--polling POLLING]
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show help message and exit.
+.TP
+\fB\-\-start START\fR
+Start date of the video.
+.TP
+\fB\-\-end END\fR
+End date of the video.
+.TP
+\fB\-\-project PROJECT\fR
+Project name on google cloud. Defaults to \fBsentinel2video\fR.
+.TP
+\fB\-\-fps FPS\fR
+Framerate of the video. Defaults to \fB1\fR.
+.TP
+\fB\-\-bands BANDS [BANDS ...]\fR
+Spectral bands. Defaults to \fBB4 B3 B2\fR.
+.TP
+\fB\-\-gamma GAMMA [GAMMA ...]\fR
+Gamma(s) for each band. Defaults to \fB0.95 1.0 1.0\fR.
+.TP
+\fB\-\-min MIN [MIN ...]\fR
+Value(s) to map to 0 for each band. Defaults to \fB0.0 0.0 0.0\fR.
+.TP
+\fB\-\-max MAX [MAX ...]\fR
+Value(s) to map to 255 for each band. Defaults to \fB3000.0 3000.0 3000.0\fR.
+.TP
+\fB\-\-output OUTPUT\fR
+Output filename of rendered video. Defaults to \fBout\fR.
+.TP
+\fB\-\-scale SCALE\fR
+Scale. Defaults to \fB100\fR.
+.TP
+\fB\-\-tiles TILES [TILES ...]\fR
+US\-Military Grid Reference System (MGRS) tile(s). Defaults to \fB31UET\fR.
+.TP
+\fB\-\-polling POLLING\fR
+Polling interval in seconds. Defaults to \fB5\fR.
+
