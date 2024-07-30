@@ -4,7 +4,8 @@ This is a simple tool to convert images from sentinel 2 satellite to video.
 
 ## Installation
 
-Use `pip install .`. Alternatively you can use following commands to install 
+Clone the repository and use `pip install .` to install the script.
+Alternatively you can use following commands to install 
 dependencies in a virtual environment:
 
 ```bash
@@ -13,7 +14,7 @@ python3 -m venv .venv
 pip install -r requirements.txt
 ```
 
-After that use `python3 ./sentinel2video` to execyte the script.
+After that use `python3 ./sentinel2video` to execute the script.
 
 ## Usage
 
