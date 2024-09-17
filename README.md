@@ -64,11 +64,11 @@ After that use `python3 ./sentinel2video` to execute the script.
 * **--max-coverage MAX_COVERAGE**  
   Maximum cloud coverage assessment. Defaults to **100.0**.
 * **--min-water MIN_WATER**  
-  Maximum water pixel percantage. Defaults to **0.0**.
+  Minimum water pixel percantage. Defaults to **0.0**.
 * **--max-water MAX_WATER**  
   Maximum water pixel percantage. Defaults to **100.0**.
 * **--min-nodata MIN_NODATA**  
-  Maximum no data pixel percantage. Defaults to **0.0**.
+  Minimum no data pixel percantage. Defaults to **0.0**.
 * **--max-nodata MAX_NODATA**  
   Maximum no data pixel percantage. Defaults to **100.0**.
 * **--output OUTPUT**  
