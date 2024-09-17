@@ -55,6 +55,18 @@ After that use `python3 ./sentinel2video` to execute the script.
   Value(s) to map to 0 for each band. Defaults to **0.0 0.0 0.0**.
 * **--max MAX [MAX ...]**  
   Value(s) to map to 255 for each band. Defaults to **3000.0 3000.0 3000.0**.
+* **--min-cloud MIN_CLOUD**
+  Minimum cloud pixel percantage. Defaults to **0.0**.
+* **--max-cloud MAX_CLOUD**
+  Maximum cloud pixel percantage. Defaults to **100.0**.
+* **--min-coverage MIN_COVERAGE**
+  Minimum cloud coverage assessment. Defaults to **0.0**.
+* **--max-coverage MAX_COVERAGE**
+  Maximum cloud coverage assessment. Defaults to **100.0**.
+* **--min-water MIN_WATER**
+  Maximum water pixel percantage. Defaults to **0.0**.
+* **--max-water MAX_WATER**
+  Maximum water pixel percantage. Defaults to **100.0**.
 * **--output OUTPUT**  
   Output filename of rendered video. Defaults to **out**.
 * **--scale SCALE**  

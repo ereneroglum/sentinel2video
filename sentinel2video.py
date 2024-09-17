@@ -16,6 +16,12 @@ if __name__ == '__main__':
   parser.add_argument('--gamma', help='Gamma(s) for each band.', nargs='+', default=[0.95, 1.0, 1.0])
   parser.add_argument('--min', help='Value(s) to map to 0 for each band.', nargs='+', default=[0.0, 0.0, 0.0])
   parser.add_argument('--max', help='Value(s) to map to 255 for each band.', nargs='+', default=[3000.0, 3000.0, 3000.0])
+  parser.add_argument('--min-cloud', help='Minimum cloud pixel percantage.', type=float, default=0.0)
+  parser.add_argument('--max-cloud', help='Maximum cloud pixel percantage.', type=float, default=100.0)
+  parser.add_argument('--min-coverage', help='Minimum cloud coverage assessment.', type=float, default=0.0)
+  parser.add_argument('--max-coverage', help='Maximum cloud coverage assessment.', type=float, default=100.0)
+  parser.add_argument('--min-water', help='Maximum water pixel percantage.', type=float, default=0.0)
+  parser.add_argument('--max-water', help='Maximum water pixel percantage.', type=float, default=100.0)
   parser.add_argument('--output', help='Output filename of rendered video.', type=str, default='out')
   parser.add_argument('--scale', help='Scale.', type=int, default=100)
   parser.add_argument('--tiles', help='US-Military Grid Reference System (MGRS) tile(s)', nargs='+', default=['31UET'])
@@ -32,6 +38,12 @@ if __name__ == '__main__':
   dataset = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED') \
               .filter(ee.Filter.inList('MGRS_TILE', args.tiles)) \
               .filterDate(args.start, args.end) \
+              .filter(ee.Filter.gt('CLOUDY_PIXEL_PERCENTAGE', args.min_cloud)) \
+              .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', args.max_cloud)) \
+              .filter(ee.Filter.gt('CLOUD_COVERAGE_ASSESSMENT', args.min_coverage)) \
+              .filter(ee.Filter.lt('CLOUD_COVERAGE_ASSESSMENT', args.max_coverage)) \
+              .filter(ee.Filter.gt('WATER_PERCENTAGE', args.min_water)) \
+              .filter(ee.Filter.lt('WATER_PERCENTAGE', args.max_water)) \
               .map(lambda image: image.visualize(bands=args.bands,
                                                  gamma=args.gamma,
                                                  min=args.min,
